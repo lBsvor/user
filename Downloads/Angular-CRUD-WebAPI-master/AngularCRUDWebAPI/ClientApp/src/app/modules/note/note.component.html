@@ -1,0 +1,40 @@
+<mat-card style="height:100%">
+  <mat-card-title>
+    Notes
+  </mat-card-title>
+  <mat-toolbar>
+    <button mat-raised-button (click)="addNew()"><mat-icon>add</mat-icon> Add New</button>
+  </mat-toolbar>
+  <mat-progress-bar mode="query" *ngIf="isWaiting"></mat-progress-bar>
+  <table mat-table [dataSource]="notes" class="mat-elevation-z8">
+aaaaaa
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="coordinateX">
+      <th mat-header-cell *matHeaderCellDef> CoordinateX </th>
+      <td mat-cell *matCellDef="let element"> {{element.CoordinateX}} </td>
+    </ng-container>
+
+  
+
+    <ng-container matColumnDef="coordinateY">
+      <th mat-header-cell *matHeaderCellDef> CoordinateY </th>
+      <td mat-cell *matCellDef="let element"> {{element.coordinateY}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"><a routerLink="/notes/{{element.id}}">Detail</a></td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</mat-card>
+
+
